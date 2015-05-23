@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+for i in "$@"; do
+    curl -L "https://parse.com/downloads/android/Parse/${i}" -o "Parse-${i}.zip"
+done
