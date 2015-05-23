@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-for i in *.zip; do
+for i in `cat dl.list`; do
     rm -fr tmp
     mkdir tmp
     pushd tmp
-    unzip ../${i}
+    unzip ../"Parse-${i}.zip"
     ../mvn-deploy
     popd
 done

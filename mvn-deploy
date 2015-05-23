@@ -31,10 +31,109 @@ done
 echo $file
 echo $version
 
+if [ "$file" ]; then
 mvn org.apache.maven.plugins:maven-deploy-plugin:2.8.2:deploy-file -Durl="$url" \
                                                                    -Dfile="$file" \
                                                                    -DgroupId="$groupId" \
                                                                    -DartifactId="$artifactId" \
                                                                    -Dversion="$version" \
                                                                    -Dpackaging="$packaging" \
-                                                                   -Djavadoc="$javadoc" \
+                                                                   -Djavadoc="$javadoc"
+fi
+
+file=
+artifactId=parse-crash-reporting
+
+for i in *; do
+    case "$i" in
+        ParseCrashReporting-*.jar) # ParseCrashReporting-1.9.2.jar
+            file="$i"
+            version="${i##*-}"
+            version="${version%.jar}"
+        ;;
+        ParseCrashReporting-*-javadoc) # ParseCrashReporting-1.9.2-javadoc
+            javadoc="${i}.jar"
+            pushd "$i"
+            zip -r "../${javadoc}" .
+            popd
+        ;;
+    esac
+done
+
+echo $file
+echo $version
+
+if [ "$file" ]; then
+mvn org.apache.maven.plugins:maven-deploy-plugin:2.8.2:deploy-file -Durl="$url" \
+                                                                   -Dfile="$file" \
+                                                                   -DgroupId="$groupId" \
+                                                                   -DartifactId="$artifactId" \
+                                                                   -Dversion="$version" \
+                                                                   -Dpackaging="$packaging" \
+                                                                   -Djavadoc="$javadoc"
+fi
+
+file=
+artifactId=parse-facebook-v3
+
+for i in *; do
+    case "$i" in
+        ParseFacebookUtilsV3-*.jar) # ParseFacebookUtilsV3-1.9.2.jar
+            file="$i"
+            version="${i##*-}"
+            version="${version%.jar}"
+        ;;
+        ParseFacebookUtilsV3-*-javadoc) # ParseFacebookUtilsV3-1.9.2-javadoc
+            javadoc="${i}.jar"
+            pushd "$i"
+            zip -r "../${javadoc}" .
+            popd
+        ;;
+    esac
+done
+
+echo $file
+echo $version
+
+if [ "$file" ]; then
+mvn org.apache.maven.plugins:maven-deploy-plugin:2.8.2:deploy-file -Durl="$url" \
+                                                                   -Dfile="$file" \
+                                                                   -DgroupId="$groupId" \
+                                                                   -DartifactId="$artifactId" \
+                                                                   -Dversion="$version" \
+                                                                   -Dpackaging="$packaging" \
+                                                                   -Djavadoc="$javadoc"
+fi
+
+file=
+artifactId=parse-facebook-v4
+
+for i in *; do
+    case "$i" in
+        ParseFacebookUtilsV4-*.jar) # ParseFacebookUtilsV4-1.9.2.jar
+            file="$i"
+            version="${i##*-}"
+            version="${version%.jar}"
+        ;;
+        ParseFacebookUtilsV4-*-javadoc) # ParseFacebookUtilsV4-1.9.2-javadoc
+            javadoc="${i}.jar"
+            pushd "$i"
+            zip -r "../${javadoc}" .
+            popd
+        ;;
+    esac
+done
+
+echo $file
+echo $version
+
+if [ "$file" ]; then
+mvn org.apache.maven.plugins:maven-deploy-plugin:2.8.2:deploy-file -Durl="$url" \
+                                                                   -Dfile="$file" \
+                                                                   -DgroupId="$groupId" \
+                                                                   -DartifactId="$artifactId" \
+                                                                   -Dversion="$version" \
+                                                                   -Dpackaging="$packaging" \
+                                                                   -Djavadoc="$javadoc"
+fi
+
